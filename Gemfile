@@ -8,13 +8,13 @@ gem 'rubycritic'
 # manage secrets with dotenv
 gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4'
+gem 'rails', '~> 6.0'
 
 # Use oracle as the database for Active Record
 gem 'activerecord-oracle_enhanced-adapter'
 gem 'ruby-oci8', require: 'oci8'
 gem 'ruby-plsql'
-gem 'composite_primary_keys', '~> 11.3.0'
+gem 'composite_primary_keys', '~> 12.0'
 
 # Use ".to_dot" to give dot-access semantic to a Hash
 gem 'hash_dot'
