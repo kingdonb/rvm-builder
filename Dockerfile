@@ -13,4 +13,4 @@ USER ${RVM_USER}
 # WORKDIR ${APPDIR} - this is set upstream by docker-rvm-support
 COPY --chown=${RVM_USER} Gemfile Gemfile.lock .ruby-version ${APPDIR}/
 COPY --chown=${RVM_USER} vendor/gems ${APPDIR}/vendor/gems
-RUN  bash -il -c 'umask u=rwx,g=rwx,o=rx && bundle config set frozen true && rvm ${RUBY} do bundle install'
+RUN  bash -il -c 'bundle config set frozen true && rvm ${RUBY} do bundle install'
