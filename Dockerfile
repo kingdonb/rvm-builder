@@ -14,3 +14,13 @@ USER ${RVM_USER}
 COPY --chown=${RVM_USER} Gemfile Gemfile.lock .ruby-version ${APPDIR}/
 COPY --chown=${RVM_USER} vendor/gems ${APPDIR}/vendor/gems
 RUN  rvm ${RUBY} do bash -c 'bundle config set frozen true && bundle install'
+
+#######################################
+
+FROM builder AS dev
+ENV RAILS_ENV development
+
+#RUN echo 'gem: --no-document' > /home/${RVM_USER}/.gemrc && bash --login -c 'gem update'
+RUN  rvm ${RUBY} do bash -c 'bundle config set with development && bundle install'
+ENV PORT 3000
+EXPOSE 3000
