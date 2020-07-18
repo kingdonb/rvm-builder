@@ -5,7 +5,7 @@ command:
   - --login
 workdir: /home/rvm/app
 volumes:
-- /usr/local/bundle/cache
+  - /home/rvm/.bundle/cache/
 persistentVolume:
   enabled: true
 securityContext:
