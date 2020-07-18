@@ -1,4 +1,4 @@
-.PHONY: okteto-builder all echo-tag
+.PHONY: okteto-builder all echo-tag dev
 
 TAG_BASE := registry.empfin.kingdonb.dev/kingdonb/builder-oci8
 
@@ -14,11 +14,15 @@ else
 export IMAGE_TAG := no-tag
 endif
 
-all: okteto-builder
+all: okteto-builder dev
 
 okteto-builder:
 	okteto build -f Dockerfile \
-		-t $(TAG_BASE):builder . --target builder
+		-t $(TAG_BASE):$(IMAGE_TAG) . --target builder
+
+dev:
+	okteto build -f Dockerfile \
+		-t $(TAG_BASE):dev . --target dev
 
 # the "echo-tag" target can help verify your GNU make binary fully supports
 # the needed feature exported environment variables (supposedly gmake 3.81+)

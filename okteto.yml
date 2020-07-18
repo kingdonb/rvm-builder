@@ -1,0 +1,19 @@
+name: builder
+image: registry.empfin.kingdonb.dev/kingdonb/builder-oci8:dev
+command:
+  - bash
+  - --login
+workdir: /home/rvm/app
+volumes:
+  - /home/rvm/.bundle/cache/
+persistentVolume:
+  enabled: true
+securityContext:
+  runAsUser: 999
+  runAsGroup: 1000
+  fsGroup: 1000
+forward:
+  - 3000:3000
+  - 1234:1234
+annotations:
+  fluxcd.io/ignore: "true"
