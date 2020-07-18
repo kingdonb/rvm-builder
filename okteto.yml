@@ -1,0 +1,12 @@
+name: builder
+image: okteto/ruby:2
+command:
+- bash
+workdir: /okteto
+forward:
+- 1234:1234
+- 8080:8080
+volumes:
+- /usr/local/bundle/cache
+persistentVolume:
+  enabled: true
