@@ -18,7 +18,7 @@ all: okteto-builder
 
 okteto-builder:
 	okteto build -f Dockerfile \
-		-t $(TAG_BASE):builder . --target builder
+		-t $(TAG_BASE):$(IMAGE_TAG) . --target builder
 
 # the "echo-tag" target can help verify your GNU make binary fully supports
 # the needed feature exported environment variables (supposedly gmake 3.81+)
