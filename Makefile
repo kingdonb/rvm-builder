@@ -14,7 +14,7 @@ else
 export IMAGE_TAG := no-tag
 endif
 
-all: okteto-builder
+all: okteto-builder dev
 
 okteto-builder:
 	okteto build -f Dockerfile \
